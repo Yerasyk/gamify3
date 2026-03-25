@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gamify3.local/schemas/asset_manifest.schema.json",
+  "title": "Asset Manifest",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "schema_version",
+    "asset_id",
+    "asset_type",
+    "source_file",
+    "exported_glb",
+    "export_timestamp",
+    "blender_version",
+    "dimensions",
+    "origin"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+$"
+    },
+    "asset_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:_[a-z0-9]+)*$"
+    },
+    "asset_type": {
+      "type": "string",
+      "enum": ["prop", "character", "modular", "material"]
+    },
+    "source_file": {
+      "type": "string",
+      "pattern": "\\.blend$"
+    },
+    "exported_glb": {
+      "type": "string",
+      "pattern": "\\.glb$"
+    },
+    "export_timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "blender_version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "dimensions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["x", "y", "z"],
+      "properties": {
+        "x": {"type": "number", "minimum": 0},
+        "y": {"type": "number", "minimum": 0},
+        "z": {"type": "number", "minimum": 0}
+      }
+    },
+    "origin": {
+      "type": "string",
+      "enum": ["center_bottom", "center_center", "corner"]
+    }
+  }
+}

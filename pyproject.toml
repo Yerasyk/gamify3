@@ -1,0 +1,14 @@
+[project]
+name = "gamify3"
+version = "0.1.0"
+description = "Blender + Godot production workflow tooling"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "jsonschema>=4.22.0",
+  "PyYAML>=6.0.1",
+]
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"

@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gamify3.local/schemas/world_manifest.schema.json",
+  "title": "World Manifest",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "schema_version",
+    "world_id",
+    "source_file",
+    "exported_glb",
+    "markers_file",
+    "export_timestamp",
+    "asset_dependencies"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+$"
+    },
+    "world_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:_[a-z0-9]+)*$"
+    },
+    "source_file": {
+      "type": "string",
+      "pattern": "\\.blend$"
+    },
+    "exported_glb": {
+      "type": "string",
+      "pattern": "\\.glb$"
+    },
+    "markers_file": {
+      "type": "string",
+      "pattern": "markers\\.json$"
+    },
+    "export_timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "asset_dependencies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["asset_id", "manifest_path"],
+        "properties": {
+          "asset_id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:_[a-z0-9]+)*$"
+          },
+          "manifest_path": {
+            "type": "string",
+            "pattern": "manifest\\.json$"
+          }
+        }
+      }
+    }
+  }
+}

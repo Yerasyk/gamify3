@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.python-version
+.venv*/
+venv*/
+env/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+
+# Blender
+*.blend1
+*.blend2
+*.blend@
+
+# Godot
+.godot/
+.import/
+export_presets.cfg
+
+# Build and export outputs
+*.glb
+validation/reports/*.json
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

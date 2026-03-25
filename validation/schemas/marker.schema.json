@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gamify3.local/schemas/marker.schema.json",
+  "title": "Marker Collection",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["schema_version", "world_id", "markers"],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+$"
+    },
+    "world_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:_[a-z0-9]+)*$"
+    },
+    "markers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": [
+          "marker_id",
+          "marker_type",
+          "position",
+          "rotation",
+          "properties"
+        ],
+        "properties": {
+          "marker_id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:_[a-z0-9]+)*$"
+          },
+          "marker_type": {
+            "type": "string",
+            "enum": ["spawn", "trigger", "waypoint", "light", "sound", "custom"]
+          },
+          "position": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 3,
+            "items": {"type": "number"}
+          },
+          "rotation": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 3,
+            "items": {"type": "number"}
+          },
+          "properties": {
+            "type": "object"
+          }
+        }
+      }
+    }
+  }
+}
